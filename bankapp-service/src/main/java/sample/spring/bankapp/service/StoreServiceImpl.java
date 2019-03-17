@@ -18,7 +18,7 @@ public class StoreServiceImpl implements StoreService {
 	
 	
 	@Override
-	@Action(name="StoreService AOP Test")
+	@Action(name="StoreService AOP Test!!")
 	public Shop getShopByArtical(int article) {
 		
 		return storeDao.getShopByArticle(article);

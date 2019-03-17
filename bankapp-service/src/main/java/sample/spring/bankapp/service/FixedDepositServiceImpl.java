@@ -27,7 +27,7 @@ public class FixedDepositServiceImpl implements FixedDepositService {
 	private BankAccountDao bankAccountDao;
 	
 	@Override
-	@Action(name="FixedDepositService AOP Test")
+	@Action(name="FixedDepositService AOP Test!!")
 	public int createFixedDeposit(final FixedDepositDetails fdd)
 			throws Exception {
 		// -- create fixed deposit
