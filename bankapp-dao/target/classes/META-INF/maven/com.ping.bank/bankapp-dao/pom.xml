@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>com.ping.bank</groupId>
+    <artifactId>bankapp</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  
+  <artifactId>bankapp-dao</artifactId>
+  
+  <packaging>jar</packaging>
+  
+ 
+  
+  <dependencies>
+  	
+	<dependency>
+		<groupId>com.ping.bank</groupId>
+		<artifactId>bankapp-domain</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+    </dependency>
+  	
+  	<!-- Spring-Jdbc 相關 Jar 檔設定 開始 -->
+  	<!-- 連線到 MySQL 8.0.13 需要使用 mysql-connector-java 8.0.11 版，不然會有問題 -->
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>8.0.11</version><!--$NO-MVN-MAN-VER$-->
+		<scope>runtime</scope>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-jdbc</artifactId>
+	    <exclusions>
+	        <!-- 去除預設的 tomcat-jdbc dependency -->
+		    <exclusion>
+		      <groupId>org.apache.tomcat</groupId>
+		      <artifactId>tomcat-jdbc</artifactId>
+		    </exclusion>
+		    
+		    <exclusion>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-logging</artifactId>
+            </exclusion>
+	    </exclusions>
+	</dependency>
+	<!-- 使用 Configuration 相關的標註  -->
+	<dependency>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-configuration-processor</artifactId>
+  		<optional>true</optional>
+  	</dependency>
+  	<!-- Spring-Jdbc 相關 Jar 檔設定 結束 -->
+  	
+  	<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-log4j2</artifactId>
+    </dependency>
+  	
+  	
+  	<dependency>
+        <groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
+	</dependency>
+
+  	
+  	
+  </dependencies>
+  
+  
+  
+  
+  
+</project>

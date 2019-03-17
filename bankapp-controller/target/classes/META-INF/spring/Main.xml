@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<!-- 
+		如果在 controller 層要 import 其它所有 jar 檔的 applicationContext.xml,
+		需要另外新增一個檔名(Main.xml)不同於 import 中宣告的 spring 設定檔名(applicationContext.xml),
+		不然會有 Detected cyclic loading 的問題(名稱循環相依)  
+	-->
+	<import resource="classpath*:META-INF/spring/applicationContext.xml" /> 
+	
+	<!-- 
+		放在最上層的 spring 設定檔，在指定package下去掃描有使用 component 類型的標註的類別，
+		讓 @Autowired 及 context.getBean() 可以從 spring container 讀到對應的 bean id。
+	-->
+	<context:component-scan base-package="sample.spring" />
+
+</beans>

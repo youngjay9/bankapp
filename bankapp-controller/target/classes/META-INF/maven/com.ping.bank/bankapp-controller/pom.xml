@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>com.ping.bank</groupId>
+    <artifactId>bankapp</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  
+  <artifactId>bankapp-controller</artifactId>
+  
+  <packaging>jar</packaging>
+  
+  <!--
+  		因為繼承自上一層 bankapp 的 spring boot dependencyManagement，可宣告相關的 dependency jar。   
+   -->
+  <dependencies>
+  		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+	            <exclusion>
+	                <groupId>org.springframework.boot</groupId>
+	                <artifactId>spring-boot-starter-logging</artifactId>
+	            </exclusion>
+	        </exclusions>
+        </dependency>
+		
+		<dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-log4j2</artifactId>
+	    </dependency>
+		
+		<dependency>
+			<groupId>com.ping.bank</groupId>
+			<artifactId>bankapp-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+  </dependencies> 
+  
+  
+  <build>
+      <!-- 有使用 spring boot 相關的 dependency，需使用 sprint-boot-maven-plugin -->
+      <plugins>
+          <plugin>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-maven-plugin</artifactId>
+              <version>2.1.2.RELEASE</version>
+          </plugin>
+      </plugins>
+  </build> 	
+ 
+
+
+</project>
