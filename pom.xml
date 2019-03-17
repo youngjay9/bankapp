@@ -57,7 +57,7 @@
         </dependencies>
   </dependencyManagement>
   
-  <!- bankapp submodules ->
+  <!--  bankapp submodules -->
   <modules>
   	<module>bankapp-domain</module>
   	<module>bankapp-dao</module>
